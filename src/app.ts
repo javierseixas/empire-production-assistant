@@ -14,3 +14,4 @@ let town : Settlement = new Town(mountain);
 console.log("Hamlet " + hamlet.production().quantity);
 console.log("Town " + town.production().quantity);
 console.log("Town " + town.taxes().quantity);
+hamlet.disposeSettler();

@@ -15,7 +15,6 @@ export class Hamlet extends Settlement{
     }
 
     disposeSettler() :void {
-        console.log("A hamlet cannot dispose a settler");
-        return;
+        throw Error("A hamlet cannot dispose a settler");
     }
 }

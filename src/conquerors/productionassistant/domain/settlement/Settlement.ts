@@ -9,17 +9,18 @@ export abstract class Settlement {
         this.terrain = terrain;
     }
 
+    // TODO emit event settlementUpgraded (Study if implements here or in each instance
     abstract upgrade(): Settlement;
+
     abstract taxes(): Goods
 
     disposeSettler(): void {
 
         if (this.settlerDisposed) {
-            console.log("A settler has been already disposed in this settlement");
             throw Error("A settler has been already disposed in this settlemen");
         }
 
-        // TODO rest from the reserve
+        // TODO emit event settlerDisposed -1 Food
 
         this.settlerDisposed = true
     }
