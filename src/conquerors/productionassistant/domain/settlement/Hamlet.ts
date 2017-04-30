@@ -9,8 +9,8 @@ export class Hamlet extends Settlement{
         return new Wealth(0);
     }
 
-    // TODO upgrade
     upgrade() : Settlement {
+        // TODO Check if upgraded to castle or not
         return new Town(this.terrain);
     }
 
