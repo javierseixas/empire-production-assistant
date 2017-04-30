@@ -11,7 +11,6 @@ export class Metropolis extends Settlement{
     }
 
     upgrade() : Settlement {
-        console.log("Metropolis cannot be upgraded");
-        return null;
+        throw Error("Metropolis cannot be upgraded");
     }
 }

@@ -17,7 +17,6 @@ export class Town extends Settlement{
     upgrade() : Settlement {
 
         if (this.terrain instanceof Forest || this.terrain instanceof Mountain) {
-            console.log("A town cannot upgrade in that terrain");
             throw Error("A town cannot upgrade in that terrain");
         }
 
