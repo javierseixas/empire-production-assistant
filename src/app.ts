@@ -1,8 +1,16 @@
+import {Terrain} from "./conquerors/productionassistant/domain/terrain/Terrain";
+import {Landscape} from "./conquerors/productionassistant/domain/terrain/Landscape";
+import {Settlement} from "./conquerors/productionassistant/domain/settlement/Settlement";
+import {Mountain} from "./conquerors/productionassistant/domain/terrain/Mountain";
+import {Hamlet} from "./conquerors/productionassistant/domain/settlement/Hamlet";
+import {Town} from "./conquerors/productionassistant/domain/settlement/Town";
 
-import {Food} from "./conquerors/productionassistant/domain/goods/Food";
+let landscape : Terrain = new Landscape();
+let mountain : Terrain = new Mountain();
 
-let food: Food;
+let hamlet : Settlement = new Hamlet(landscape);
+let town : Settlement = new Town(mountain);
 
-food = new Food(1);
-
-console.log(food);
+console.log("Hamlet " + hamlet.production().quantity);
+console.log("Town " + town.production().quantity);
+console.log("Town " + town.taxes().quantity);
