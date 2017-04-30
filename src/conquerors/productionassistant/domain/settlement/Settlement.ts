@@ -1,4 +1,7 @@
-abstract class Settlement {
+import {Goods} from "../goods/Goods";
+import {Terrain} from "../terrain/Terrain";
+
+export abstract class Settlement {
 
     protected settlerDisposed : boolean = false;
 

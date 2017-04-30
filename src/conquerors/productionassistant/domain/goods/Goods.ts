@@ -1,4 +1,4 @@
-class Goods {
+export class Goods {
     quantity : number;
 
     constructor (quantity : number) {
