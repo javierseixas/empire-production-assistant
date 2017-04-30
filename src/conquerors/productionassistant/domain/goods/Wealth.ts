@@ -1,0 +1,3 @@
+class Wealth extends Goods {
+
+}

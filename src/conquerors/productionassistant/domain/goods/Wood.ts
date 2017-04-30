@@ -1,0 +1,3 @@
+class Wood extends Goods {
+
+}
