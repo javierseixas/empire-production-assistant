@@ -16,7 +16,7 @@ export abstract class Settlement {
 
         if (this.settlerDisposed) {
             console.log("A settler has been already disposed in this settlement");
-            return;
+            throw Error("A settler has been already disposed in this settlemen");
         }
 
         // TODO rest from the reserve

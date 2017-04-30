@@ -2,6 +2,8 @@ import {Settlement} from "./Settlement";
 import {Goods} from "../goods/Goods";
 import {Wealth} from "../goods/Wealth";
 import {Metropolis} from "./Metropolis";
+import {Forest} from "../terrain/Forest";
+import {Mountain} from "../terrain/Mountain";
 
 export class Town extends Settlement{
 
@@ -16,7 +18,7 @@ export class Town extends Settlement{
 
         if (this.terrain instanceof Forest || this.terrain instanceof Mountain) {
             console.log("A town cannot upgrade in that terrain");
-            return;
+            throw Error("A town cannot upgrade in that terrain");
         }
 
         return new Metropolis(this.terrain);
