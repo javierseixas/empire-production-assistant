@@ -1,5 +1,5 @@
 import {Goods} from "./Goods";
 
-class Stone extends Goods {
+export class Stone extends Goods {
 
 }
