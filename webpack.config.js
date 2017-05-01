@@ -8,7 +8,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.ts?$/, loader: 'ts-loader'}
+            {test: /\.tsx?$/, loader: 'ts-loader'}
         ]
     }
 }
