@@ -11,7 +11,7 @@ export class Hamlet extends Settlement{
 
     upgrade() : Settlement {
         // TODO Check if upgraded to castle or not
-        return new Town(this.terrain);
+        return new Town(this.terrain, this.eventBus);
     }
 
     disposeSettler() :void {

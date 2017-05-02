@@ -1,12 +1,15 @@
 import {Goods} from "../goods/Goods";
 import {Terrain} from "../terrain/Terrain";
+import {RxEvent, RxEventBus} from "../RxEventBus";
+import {Food} from "../goods/Food";
 
 export abstract class Settlement {
 
     protected settlerDisposed : boolean = false;
 
-    constructor(readonly terrain : Terrain) {
+    constructor(readonly terrain : Terrain, readonly eventBus : RxEventBus) {
         this.terrain = terrain;
+        this.eventBus = eventBus;
     }
 
     // TODO emit event settlementUpgraded (Study if implements here or in each instance
@@ -20,7 +23,8 @@ export abstract class Settlement {
             throw Error("A settler has been already disposed in this settlemen");
         }
 
-        // TODO emit event settlerDisposed -1 Food
+        console.log("pre-disposing");
+        this.eventBus.post(new RxEvent("pepe", new Food(-1)));
 
         this.settlerDisposed = true
     }

@@ -13,6 +13,6 @@ export class City extends Settlement{
 
     // TODO upgrade
     upgrade() : Settlement {
-        return new Metropolis(this.terrain);
+        return new Metropolis(this.terrain, this.eventBus);
     }
 }

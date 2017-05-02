@@ -20,6 +20,6 @@ export class Town extends Settlement{
             throw Error("A town cannot upgrade in that terrain");
         }
 
-        return new Metropolis(this.terrain);
+        return new Metropolis(this.terrain, this.eventBus);
     }
 }

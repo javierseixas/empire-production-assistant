@@ -1,6 +1,6 @@
 import {Subject} from 'rx';
 
-class RxEventBus {
+export class RxEventBus {
 
     protected subject : Subject<RxEvent>;
 
@@ -9,6 +9,7 @@ class RxEventBus {
     }
 
     subscribe(key, action) {
+        console.log("subscribing");
         return this.subject
             .filter(event => event.key === key)
             .map(event => event.value)
@@ -16,12 +17,13 @@ class RxEventBus {
     }
 
     post(event) {
+        console.log("posting")
         this.subject.onNext(event);
     }
 
 }
 
-export const rxEventBus = new RxEventBus();
+export const Pepe = new RxEventBus();
 
 export class RxEvent {
 
