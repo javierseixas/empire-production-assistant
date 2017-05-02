@@ -17,11 +17,8 @@ let hamlet : Settlement = new Hamlet(landscape, eventBus);
 let town : Settlement = new Town(mountain, eventBus);
 
 let currentReserve : CurrentReserve = new CurrentReserve(eventBus);
-
-
-
 console.log("Hamlet " + hamlet.production().quantity);
+
 console.log("Town " + town.production().quantity);
 console.log("Town " + town.taxes().quantity);
 town.disposeSettler();
-hamlet.disposeSettler();

@@ -1,4 +1,5 @@
-import {RxEventBus} from "../RxEventBus";
+import {RxEvent, RxEventBus} from "../RxEventBus";
+
 
 export abstract class Reserve {
 
@@ -8,15 +9,46 @@ export abstract class Reserve {
     protected wealth: number = 0;
 
     constructor(readonly eventBus: RxEventBus) {
-        this.eventBus.subscribe("pepe", function (event) {
-            // foreach goods in event
-                // resolve type
-                // applies cost
-            // DOUBT how to access my class
-            console.log("hola");
-            console.log(event);
-            let hola = "hola";
-            // TODO throw exception when low limit passed
-        });
+        this.eventBus.subscribe("settlerDisposed", this.updateReserve.bind(this, "settlerDisposed"));
+        this.eventBus.subscribe("settlementUpgraded", this.updateReserve.bind(this, "settlementUpgraded"));
+        this.eventBus.subscribe("armyRecruited", this.updateReserve.bind(this, "armyRecruited"));
+        this.eventBus.subscribe("settlementBuilt", this.updateReserve.bind(this, "settlementBuilt"));
+    }
+
+    public updateReserve (type : string, event : RxEvent) {
+
+        switch (type) {
+            case "settlerDisposed":
+                this.settlerDisposed(event);
+                break;
+            case "settlementUpgraded":
+                this.settlementUpgraded(event);
+                break;
+            case "armyRecruited":
+                this.settlementUpgraded(event);
+                break;
+            case "settlementBuilt":
+                this.settlementUpgraded(event);
+                break;
+            default:
+                break;
+        }
+    }
+
+    protected settlerDisposed(event : RxEvent) {
+        console.log("settlerDisposed");
+        console.log(event);
+    }
+
+    protected settlementUpgraded(event : RxEvent) {
+        console.log("settlementUpgraded" + event);
+    }
+
+    protected settlementBuilt(event : RxEvent) {
+        console.log("settlementBuilt" + event);
+    }
+
+    protected armyRecruited(event : RxEvent) {
+        console.log("armyRecruited" + event);
     }
 }

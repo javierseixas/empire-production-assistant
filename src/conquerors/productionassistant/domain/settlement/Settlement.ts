@@ -19,12 +19,14 @@ export abstract class Settlement {
 
     disposeSettler(): void {
 
+        // TODO I need to know the state of the CurrentReserve to let dispose the Settler
+
         if (this.settlerDisposed) {
             throw Error("A settler has been already disposed in this settlemen");
         }
 
         console.log("pre-disposing");
-        this.eventBus.post(new RxEvent("pepe", new Food(-1)));
+        this.eventBus.post(new RxEvent("settlerDisposed", new Food(-1)));
 
         this.settlerDisposed = true
     }
