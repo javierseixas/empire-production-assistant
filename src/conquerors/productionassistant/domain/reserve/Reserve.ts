@@ -1,6 +1,5 @@
 import {RxEvent, RxEventBus} from "../RxEventBus";
 
-
 export abstract class Reserve {
 
     protected food: number = 0;
