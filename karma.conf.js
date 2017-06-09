@@ -3,6 +3,13 @@
  */
 
 var webpackConfig = require("./webpack.config");
+var sourcePreprocessors = 'coverage';
+function isDebug(argument) {
+    return argument === '--debug';
+}
+if (process.argv.some(isDebug)) {
+    sourcePreprocessors = [];
+}
 
 module.exports = function(config) {
     config.set({
@@ -50,7 +57,7 @@ module.exports = function(config) {
        */
         frameworks: ["mocha", "chai", "sinon"],
 
-        logLevel: config.LOG_INFO,
+        logLevel: config.LOG_DEBUG,
 
       /*
        * By default, Karma loads all sibling NPM modules which have a name
@@ -68,6 +75,7 @@ module.exports = function(config) {
        * A map of preprocessors to use. Requires the corresponding karma-*
        * npm module to be npm installed and added to the "plugins" field.
        */
+
         preprocessors: {
             "test/**/*.ts": ["webpack"] // Using karma-webpack npm module
         },

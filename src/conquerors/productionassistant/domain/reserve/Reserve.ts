@@ -8,10 +8,11 @@ export abstract class Reserve {
     protected wealth: number = 0;
 
     constructor(readonly eventBus: RxEventBus) {
+        debugger;
         this.eventBus.subscribe("settlerDisposed", this.updateReserve.bind(this, "settlerDisposed"));
-        this.eventBus.subscribe("settlementUpgraded", this.updateReserve.bind(this, "settlementUpgraded"));
-        this.eventBus.subscribe("armyRecruited", this.updateReserve.bind(this, "armyRecruited"));
-        this.eventBus.subscribe("settlementBuilt", this.updateReserve.bind(this, "settlementBuilt"));
+        //this.eventBus.subscribe("settlementUpgraded", this.updateReserve.bind(this, "settlementUpgraded"));
+        //this.eventBus.subscribe("armyRecruited", this.updateReserve.bind(this, "armyRecruited"));
+        //this.eventBus.subscribe("settlementBuilt", this.updateReserve.bind(this, "settlementBuilt"));
     }
 
     public updateReserve (type : string, event : RxEvent) {
