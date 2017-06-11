@@ -3,7 +3,10 @@
     "module": "commonjs",
     "preserveConstEnums": true,
     "target": "es5",
-    "sourceMap": true
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "jsx": "react"
+
   },
   "exclude": [
     "node_modules",

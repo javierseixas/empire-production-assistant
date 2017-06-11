@@ -8,7 +8,7 @@ export class RxEventBus {
         this.subject = new Subject<RxEvent>();
     }
 
-    subscribe(key, action) {
+    subscribe(key : string, action : any) {
         console.log("subscribing");
         return this.subject
             .filter(event => event.key === key)
@@ -16,7 +16,7 @@ export class RxEventBus {
             .subscribe(action);
     }
 
-    post(event) {
+    post(event : any) {
         console.log("posting")
         this.subject.onNext(event);
     }
@@ -31,7 +31,7 @@ export class RxEvent {
     public key : any;
     public value : any;
 
-    constructor(key, value) {
+    constructor(key : any, value : any) {
         this.key = key;
         this.value = value;
     }
