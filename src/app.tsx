@@ -11,6 +11,8 @@ import * as React from "react"
 import * as ReactDOM from "react-dom";
 import {Hello} from "./components/Hello";
 
+import * as Redux from "redux";
+
 
 let eventBus: RxEventBus = new RxEventBus;
 
@@ -27,8 +29,25 @@ console.log("Town " + town.production().quantity);
 console.log("Town " + town.taxes().quantity);
 town.disposeSettler();
 
+// Redux
+const counter = (state = 0, action : any) => {
+  switch (action.type) {
+      case 'DISPOSE_SETTLER':
+          return state - 1;
+      default:
+          return state;
+  }
+};
 
-ReactDOM.render(
+const { createStore } = Redux;
+const store = createStore(counter);
+
+
+const render : any = ReactDOM.render(
     <Hello compiler="TypeScript" framework="React" />,
     document.getElementById('container')
 );
+
+store.subscribe(render);
+
+render();

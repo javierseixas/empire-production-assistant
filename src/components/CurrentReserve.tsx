@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface CurrentReserve { }
+export interface CurrentReserve { food : Number }
 
 export class CurrentReserveComponent extends React.Component<CurrentReserve, undefined> {
 
@@ -8,7 +8,7 @@ export class CurrentReserveComponent extends React.Component<CurrentReserve, und
         return <table>
             <tr>
                 <td>Food</td>
-                <td></td>
+                <td>{ this.props.food }</td>
             </tr>
         </table>
     }
