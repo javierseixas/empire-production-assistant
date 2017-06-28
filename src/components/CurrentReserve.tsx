@@ -8,7 +8,6 @@ export class CurrentReserveComponent extends React.Component<CurrentReserve, und
         return <table>
             <tr>
                 <td>Food</td>
-                <td>{ this.props.food }</td>
             </tr>
         </table>
     }

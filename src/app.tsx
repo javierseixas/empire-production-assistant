@@ -12,6 +12,7 @@ import * as ReactDOM from "react-dom";
 import {Hello} from "./components/Hello";
 
 import * as Redux from "redux";
+import {Layout} from "./components/Layout";
 
 
 let eventBus: RxEventBus = new RxEventBus;
@@ -43,11 +44,11 @@ const { createStore } = Redux;
 const store = createStore(counter);
 
 
-const render : any = ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+ReactDOM.render(
+    <Layout compiler="TypeScript" framework="React" />,
     document.getElementById('container')
 );
 
-store.subscribe(render);
+//store.subscribe(render);
 
-render();
+//render();
