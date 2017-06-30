@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/app.tsx',
+    entry: './src/redux.tsx',
     output: {
         filename: './public/bundle.js'
     },
