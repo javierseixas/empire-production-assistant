@@ -1,4 +1,4 @@
-import {createStore, Reducer, ReducersMapObject, combineReducers} from "redux";
+import {createStore, Reducer, ReducersMapObject, combineReducers, StoreEnhancer, applyMiddleware} from "redux";
 
 export class Tweet {
 
@@ -36,8 +36,14 @@ const reducerMapObjects: ReducersMapObject = {
 
 const reducers: any = combineReducers(reducerMapObjects);
 
+const logger: any = (store: any) => (next: any) => (action: any) => {
+    console.log("action fired", action);
+    next(action);
+};
 
-const store = createStore(reducers, {});
+const middleware: StoreEnhancer<any> = applyMiddleware(logger);
+
+const store = createStore(reducers, {}, middleware);
 
 store.subscribe(() => {
     console.log("store changed ", store.getState());
