@@ -1,4 +1,7 @@
 import store from "./store";
+import * as army from "./actions/armyActions"
+
+army.decreaseArmyCost(1);
 
 store.subscribe(() => {
     console.log("store changed ", store.getState());
