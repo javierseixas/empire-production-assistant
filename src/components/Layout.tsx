@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Header} from "./Header";
+import {ArmyModule} from "./army/ArmyModule";
 
 export interface LayoutProps { compiler: string; framework: string; }
 
@@ -24,6 +25,7 @@ export class Layout extends React.Component<LayoutProps, undefined> {
         return (
             <div>
                 <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
+                <ArmyModule />
             </div>
         )
     }
