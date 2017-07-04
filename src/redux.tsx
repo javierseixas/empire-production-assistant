@@ -1,4 +1,5 @@
 import {createStore, Reducer, ReducersMapObject, combineReducers, StoreEnhancer, applyMiddleware} from "redux";
+import {logger} from "redux-logger";
 
 export class Tweet {
 
@@ -10,7 +11,7 @@ export class User {
     tweets: Array<Tweet>;
 }
 
-const userReducer: Reducer<any> = (state : User = new User(), action: any) => {
+const userReducer: Reducer<any> = (state: User = new User(), action: any) => {
     switch (action.type) {
         case "CHANGE_NAME": {
             state = {...state, name: action.payload};
@@ -25,7 +26,7 @@ const userReducer: Reducer<any> = (state : User = new User(), action: any) => {
 };
 
 
-const tweetsReducer: Reducer<any> = (state : object = [], action: any) => {
+const tweetsReducer: Reducer<any> = (state: object = [], action: any) => {
     return state;
 };
 
@@ -36,12 +37,12 @@ const reducerMapObjects: ReducersMapObject = {
 
 const reducers: any = combineReducers(reducerMapObjects);
 
-const logger: any = (store: any) => (next: any) => (action: any) => {
+const manualLogger: any = (store: any) => (next: any) => (action: any) => {
     console.log("action fired", action);
     next(action);
 };
 
-const middleware: StoreEnhancer<any> = applyMiddleware(logger);
+const middleware: StoreEnhancer<any> = applyMiddleware(logger, manualLogger);
 
 const store = createStore(reducers, {}, middleware);
 
