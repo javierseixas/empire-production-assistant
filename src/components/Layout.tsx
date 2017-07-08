@@ -25,7 +25,7 @@ export class Layout extends React.Component<LayoutProps, undefined> {
         return (
             <div>
                 <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
-                <ArmyModule />
+                <ArmyModule armyCost={0} />
             </div>
         )
     }

@@ -1,5 +1,6 @@
 module.exports = {
     entry: './src/redux.tsx',
+    devtool: 'source-map',
     output: {
         filename: './public/bundle.js'
     },
