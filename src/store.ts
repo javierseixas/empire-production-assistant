@@ -1,6 +1,7 @@
 import {createStore, StoreEnhancer, applyMiddleware} from "redux";
 import {logger} from "redux-logger";
 import combinedReducers from "./reducers";
+import rootReducer from "./store/reducer";
 
 const manualLogger: any = (store: any) => (next: any) => (action: any) => {
     console.log("action fired", action);
@@ -9,6 +10,6 @@ const manualLogger: any = (store: any) => (next: any) => (action: any) => {
 
 const middleware: StoreEnhancer<any> = applyMiddleware(logger, manualLogger);
 
-const store = createStore(combinedReducers, {}, middleware);
+const store = createStore(rootReducer, {}, middleware);
 
 export default store;

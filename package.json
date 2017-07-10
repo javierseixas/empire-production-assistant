@@ -21,7 +21,7 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sinon": "^1.0.5",
-    "karma-webpack": "^2.0.3",
+    "karma-webpack": "^2.0.4",
     "mocha": "^3.4.2",
     "phantomjs-prebuilt": "^2.1.14",
     "sinon": "^2.3.6",
@@ -31,14 +31,18 @@
     "webpack": "^2.6.1"
   },
   "dependencies": {
-    "@types/react": "^15.0.34",
+    "@types/react": "^15.0.35",
     "@types/react-dom": "^15.5.1",
     "@types/react-redux": "^4.4.45",
+    "@types/react-router": "^3.0.5",
+    "@types/react-router-redux": "^4.0.48",
     "@types/redux-logger": "^3.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-redux-typescript": "^2.3.0",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.8",
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
     "rx": "^4.0.7"
