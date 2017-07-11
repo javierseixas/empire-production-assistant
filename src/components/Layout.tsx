@@ -1,6 +1,4 @@
 import * as React from "react";
-import {Header} from "./Header";
-import {ArmyModule} from "./army/ArmyModule";
 
 export class Layout extends React.Component<any, any> {
 

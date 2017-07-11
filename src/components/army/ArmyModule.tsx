@@ -5,20 +5,21 @@ import {Counter} from "./Counter";
 
 import { returntypeof } from 'react-redux-typescript';
 import {connect} from "react-redux";
-import {ActionCreators, RootState, State} from "../../store/reducer";
+import {ActionCreators} from "../../store/reducer";
+import {RootState} from "../../store/index";
 
-const mapStateToProps = (rootState: RootState) => {
-    debugger;
-    return ({
-    armyCost: rootState.army.armyCost
-})};
+const mapStateToProps = (state: RootState) => ({
+    counter: state.pepito
+});
+
 const dispatchToProps = {
-    //decreaseCounter: ActionCreators.decreaseArmyCost.create,
+    decreaseCounter: ActionCreators.decreaseArmyCost.create,
 };
 
 // Props types inferred from mapStateToProps & dispatchToProps
 const stateProps = returntypeof(mapStateToProps);
 type Props = typeof stateProps & typeof dispatchToProps;
+type State = {};
 
 export class ArmyModule extends React.Component<any, any> {
 
@@ -31,19 +32,15 @@ export class ArmyModule extends React.Component<any, any> {
 
     increaseCounter = () => {
         console.log("increasing");
-        this.setState({ armyCost: this.props.armyCost + 1});
-    };
-    decreaseCounter = () => {
-        console.log("decreasing");
-        this.setState({ armyCost: this.props.armyCost - 1});
+        //this.setState({ armyCost: this.props.armyCost + 1});
     };
 
     render() {
         console.log(this.props);
         return <div>
             <Increaser trigger={this.increaseCounter} />
-            <Decreaser trigger={this.decreaseCounter} />
-            <Counter value={this.props.armyCost} />
+            <Decreaser trigger={this.props.decreaseCounter} />
+            <Counter value={this.props.counter.armyCost} />
         </div>
     }
 }
