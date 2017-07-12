@@ -25,7 +25,7 @@ type State = {};
 export class ArmyModule extends React.Component<any, any> {
 
     render() {
-        return <div>
+        return <div className="row">
             <Increaser trigger={this.props.increaseCounter} />
             <Decreaser trigger={this.props.decreaseCounter} />
             <Counter value={this.props.counter.armyCost} />

@@ -11,14 +11,6 @@ import { browserHistory } from 'react-router';
 import {store} from "./store/index";
 
 const history = syncHistoryWithStore(browserHistory, store) as any;
-//army.decreaseArmyCost(1);
-
-// store.subscribe(() => {
-//     console.log("store changed ", store.getState());
-// });
-//
-// store.dispatch({type: "CHANGE_NAME", payload: "Will"});
-// store.dispatch({type: "CHANGE_AGE", payload: 35});
 
 ReactDOM.render(
     <Provider store={store}>

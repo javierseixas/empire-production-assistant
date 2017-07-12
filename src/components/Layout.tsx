@@ -6,7 +6,7 @@ export class Layout extends React.Component<any, any> {
         const {children} = this.props;
 
         return (
-            <div>
+            <div className="container-fluid">
                 {children}
             </div>
         )
