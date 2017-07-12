@@ -13,7 +13,8 @@ const mapStateToProps = (state: RootState) => ({
 });
 
 const dispatchToProps = {
-    decreaseCounter: ActionCreators.decreaseArmyCost.create,
+    increaseCounter: ActionCreators.increaseArmyCost.create,
+    decreaseCounter: ActionCreators.decreaseArmyCost.create
 };
 
 // Props types inferred from mapStateToProps & dispatchToProps
@@ -23,22 +24,9 @@ type State = {};
 
 export class ArmyModule extends React.Component<any, any> {
 
-
-    // decreaseCounter = () => {
-    //     console.log("Decreasing");
-    //     this.setState({armyCost: this.props.armyCost - 1});
-    //     this.props.armyCost = this.props.armyCost - 1;
-    // }
-
-    increaseCounter = () => {
-        console.log("increasing");
-        //this.setState({ armyCost: this.props.armyCost + 1});
-    };
-
     render() {
-        console.log(this.props);
         return <div>
-            <Increaser trigger={this.increaseCounter} />
+            <Increaser trigger={this.props.increaseCounter} />
             <Decreaser trigger={this.props.decreaseCounter} />
             <Counter value={this.props.counter.armyCost} />
         </div>

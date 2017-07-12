@@ -2,6 +2,7 @@ import { ActionCreator } from './action-creator';
 import {Reducer} from "redux";
 
 export const ActionCreators = {
+    increaseArmyCost: new ActionCreator<'IncreaseArmyCost', number>('IncreaseArmyCost'),
     decreaseArmyCost: new ActionCreator<'DecreaseArmyCost', number>('DecreaseArmyCost')
 };
 
@@ -19,6 +20,10 @@ export const initialState: State = {
 const pepitoReducer: Reducer<any> = (state: State = initialState, action: any) => {
 
     let partialState: Partial<State> | undefined;
+
+    if (action.type === ActionCreators.increaseArmyCost.type) {
+        partialState = { armyCost: state.armyCost + 1};
+    }
 
     if (action.type === ActionCreators.decreaseArmyCost.type) {
         partialState = { armyCost: state.armyCost - 1};
