@@ -1,6 +1,4 @@
 import * as React from "react";
-import {DisposeSettlerButton, DisposeSettlerComponent} from "./DisposeSettler";
-import {CurrentReserveComponent} from "./CurrentReserve";
 
 export interface HelloProps { compiler: string; framework: string; }
 

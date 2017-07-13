@@ -8,14 +8,20 @@ import {
     default as test, State as ArmyState
 } from './reducer';
 
+import {
+    default as reserveReducer, State as ReserveState
+} from './current-reserve-reducer';
+
 export type RootState = {
+    reserve: ReserveState,
     routing: any,
     pepito: ArmyState,
 };
 
 const rootReducer = combineReducers<RootState>({
     routing: routerReducer,
-    pepito: test
+    pepito: test,
+    reserve: reserveReducer
 });
 
 // rehydrating state on app start: implement here...
@@ -25,7 +31,7 @@ const recoverState = (): RootState => ({} as RootState);
 //     currencyConverterEpics,
 // );
 //const epicMiddleware = createEpicMiddleware(rootEpic);
-//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const manualLogger: any = (store: any) => (next: any) => (action: any) => {
     console.log("action fired", action);
@@ -37,7 +43,7 @@ const middlewaree: StoreEnhancer<any> = applyMiddleware(logger, manualLogger);
 export const store = createStore(
     rootReducer,
     recoverState(),
-    middlewaree
+    composeEnhancers(middlewaree)
 );
 export type Store = { getState: () => RootState, dispatch: Function };
 
